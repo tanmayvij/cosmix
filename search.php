@@ -18,9 +18,12 @@
 include 'config.php';
 page_protect();
 
-if(empty($_GET['q'])) die("Invalid Request.");
+if(empty($_GET['q']) || empty($_GET['q'])) die("Invalid Request.");
 $search_q = mysqli_real_escape_string($link, $_GET['q']);
-$result = mysqli_query($link, "SELECT * FROM books WHERE book_name LIKE '%$search_q%';");
+if($_GET['type'] == 'year')
+	$result = mysqli_query($link, "SELECT * FROM books WHERE $_GET[type] = $search_q;");
+else
+	$result = mysqli_query($link, "SELECT * FROM books WHERE $_GET[type] LIKE '%$search_q%';");
 if(mysqli_num_rows($result) == 0) die("No records found.");
 	
 ?>

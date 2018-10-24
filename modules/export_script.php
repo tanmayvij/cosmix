@@ -11,7 +11,7 @@
 		}
 	}
 	$file = fopen('php://output', 'w');
-	fputcsv($file, array('Book ID', 'Book Name', 'Username', 'Status', 'Date of Issue', 'Date of Return'));
+	fputcsv($file, array('Book ID', 'Book Name', 'Username', 'Status', 'Date of Issue', 'Date of Return', 'Publisher', 'Cost', 'Year', 'Language', 'Author'));
 	if (count($books) > 0) {
 		foreach ($books as $row1) {
 			fputcsv($file, $row1);

@@ -17,7 +17,9 @@ if(mysqli_num_rows($result) == 0)
 }
 if(isset($_POST['book_name']))
 {
-	mysqli_query($link, "UPDATE books SET book_name = '$_POST[book_name]' where book_id = $_GET[id]");
+	mysqli_query($link,
+	"UPDATE books SET book_name = '$_POST[book_name]', publisher = '$_POST[publisher]', cost = $_POST[cost],
+	year = $_POST[year], language = '$_POST[language]', author = '$_POST[author]' where book_id = $_GET[id]");
 	die("Modified successfully.<br><a href='records.php'>Back</a>");
 }
 else
@@ -25,6 +27,11 @@ else
 	echo '<div align="center">
 		<form action="" method="post">
 			<input type="text" name="book_name" placeholder="New Book Name..." required><br>
+			<input type="text" name="publisher" placeholder="Publisher..." required><br>
+				<input type="number" name="cost" placeholder="Cost..." required><br>
+				<input type="number" name="year" placeholder="Year of Publishing..." required><br>
+				<input type="text" name="language" placeholder="Language..." required><br>
+				<input type="text" name="author" placeholder="Author..." required><br>
 			<input type="submit" name="submit" value="Update"><br>
 		</form>
 	</div>

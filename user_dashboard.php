@@ -38,7 +38,13 @@ page_protect();
 				<button title="Logout" onclick="window.location.href='logout.php'">
 					<img src="/static/img/tiles/logout.png">
 				</button>
-				<input type="text" name="q" placeholder="Search the library..." id="search_field">
+				<input type="text" name="q" placeholder="Search the library..." id="search_field"><br>
+				<span style="font-weight: bold; font-size: 20px;">Search By:</span><br>
+				<input type="radio" name="type" value="book_name" checked> Book Name
+				<input type="radio" name="type" value="publisher"> Publisher
+				<input type="radio" name="type" value="author"> Author
+				<input type="radio" name="type" value="language"> Language
+				<input type="radio" name="type" value="year"> Year of Publishing
 				<hr>
 			</header>
 			<div id="stat">
@@ -90,7 +96,7 @@ page_protect();
 			field.addEventListener("keyup", function(event) {
 				event.preventDefault();
 				if (event.keyCode === 13) {
-					iframe.setAttribute('src', 'search.php?q=' + document.getElementById('search_field').value);
+					iframe.setAttribute('src', 'search.php?q=' + document.getElementById('search_field').value + '&type=' + $("input[type='radio'][name='type']:checked").val());
 					modal.style.display = "block";
 				}
 			});
