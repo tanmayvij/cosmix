@@ -1,19 +1,23 @@
-<style>
-	@import url('https://fonts.googleapis.com/css?family=Chakra+Petch');
-	table
-	{
-		width: 90%;
-	}
-	table, td, th
-	{
-		border-radius: 15px;
-	}
-	td, th
-	{
-		padding: 15px 15px 15px 15px;
-		font-family: 'Chakra Petch', sans-serif;
-	}
-</style>
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			@import url('https://fonts.googleapis.com/css?family=Chakra+Petch');
+			table
+			{
+				width: 90%;
+			}
+			table, td, th
+			{
+				border-radius: 15px;
+			}
+			td, th
+			{
+				padding: 15px 15px 15px 15px;
+				font-family: 'Chakra Petch', sans-serif;
+			}
+		</style>
+	</head>
 <?php 
 include 'config.php';
 page_protect();
@@ -27,6 +31,7 @@ else
 if(mysqli_num_rows($result) == 0) die("No records found.");
 	
 ?>
+<body>
 <div align="center">
 	<table border="1">
 			<tr>
@@ -56,3 +61,5 @@ if(mysqli_num_rows($result) == 0) die("No records found.");
 			?>
 	</table>
 </div>
+</body>
+</html>

@@ -34,16 +34,13 @@ if($get['cmd'] == 'ban')
 {
 mysqli_query($link,"update users set banned='1' where id='$get[id]' and `user_name` <> 'admin'");
 
-//header("Location: $ret");  
 echo "yes";
 exit();
 
 }
-/* Editing users*/
 
 if($get['cmd'] == 'edit')
 {
-/* Duplicate user name check */
 $rs_usr_duplicate = mysqli_query($link,"select count(*) as total from `users` where `user_name`='$get[user_name]' and `id` != '$get[id]'") or die(mysqli_error($link));
 list($usr_total) = mysqli_fetch_row($rs_usr_duplicate);
 	if ($usr_total > 0)
@@ -51,7 +48,6 @@ list($usr_total) = mysqli_fetch_row($rs_usr_duplicate);
 	echo "Sorry! user name already registered.";
 	exit;
 	} 
-/* Duplicate email check */	
 $rs_eml_duplicate = mysqli_query($link,"select count(*) as total from `users` where `user_email`='$get[user_email]' and `id` != '$get[id]'") or die(mysqli_error($link));
 list($eml_total) = mysqli_fetch_row($rs_eml_duplicate);
 	if ($eml_total > 0)
@@ -59,14 +55,12 @@ list($eml_total) = mysqli_fetch_row($rs_eml_duplicate);
 	echo "Sorry! user email already registered.";
 	exit;
 	}
-/* Now update user data*/	
 mysqli_query($link,"
 update users set  
 `user_name`='$get[user_name]', 
 `user_email`='$get[user_email]',
 `user_level`='$get[user_level]'
 where `id`='$get[id]'") or die(mysqli_error($link));
-//header("Location: $ret"); 
 
 if(!empty($get['pass'])) {
 $hash = PwdHash($get['pass']);
@@ -81,9 +75,6 @@ if($get['cmd'] == 'unban')
 {
 mysqli_query($link,"update users set banned='0' where id='$get[id]'");
 echo "no";
-
-//header("Location: $ret");  
-// exit();
 
 }
 

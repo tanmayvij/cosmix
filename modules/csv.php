@@ -19,9 +19,6 @@ else if($_GET['type']==='import')
 			if(is_uploaded_file($_FILES['csv_file']['tmp_name']))
 			{
 				$file = fopen($_FILES['csv_file']['tmp_name'], 'r');
-				//while(!is_numeric($line[0]))
-				//	fgetcsv($file);
-				//fgetcsv($file);
 				$ctr = 0;
 				while(($line = fgetcsv($file)) !== FALSE)
 				{
