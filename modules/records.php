@@ -38,6 +38,5 @@ if(isset($_POST['add_submit']))
 					<input type="submit" name="add_submit" value="Add"><br>
 				</form>
 			</div>
-			<br><br>
-			<hr>
+			<br><br><br>
 		</div>

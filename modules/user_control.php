@@ -283,8 +283,7 @@ echo "<div class=\"msg\">User registered successfully.</div>";
             
             </form>
      </div>
-        
-      
+      <br><br><br>
   </tr>
 </table>
 </body>
