@@ -1,4 +1,4 @@
-# lib-mgmt-sys
+# cosmix
 
 Views Structure:
 
@@ -10,7 +10,6 @@ Views Structure:
     Send bulk email to users where books overdue
     
 -    /admin/import or export data -> Import Book details from CSV or Export to CSV
-https://www.itechempires.com/2016/05/export-data-from-mysql-to-csv-using-php/
     
 -   /admin/issue book: Bar code scanning --> Picks up book code from books table; Sets status as issued;
     sets customer username.
